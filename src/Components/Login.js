@@ -2,6 +2,7 @@ import { getAuth } from "firebase/auth";
 import React, { useState } from "react";
 import app from "../firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +11,17 @@ const Login = () => {
   const auth = getAuth(app);
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
 
+  //redirecting
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location?.state?.from?.pathname || "/";
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle().then(() => {
+      navigate(from, { replace: true });
+    });
+  };
   if (error) {
     return (
       <div>
@@ -20,13 +32,10 @@ const Login = () => {
   if (loading) {
     return <p>Loading...</p>;
   }
-  if (user) {
-    // return (
-    //   <div>{user && <Navigate to="/dashboard" replace={true}></Navigate>}</div>
-    // );
-  }
+  // if (user) {
+  // }
   return (
-    <form className="">
+    <form className="mt-6">
       <div className="card-body w-96 h-72 mx-auto bg-secondary rounded-md">
         {" "}
         <h1 className="font-bold mb-2">please login</h1>
@@ -49,7 +58,7 @@ const Login = () => {
         <button className="font-bold">Login</button>
         <button
           className="mt-2 font-bold btn text-white"
-          onClick={() => signInWithGoogle()}
+          onClick={handleGoogleSignIn}
         >
           Login with google
         </button>

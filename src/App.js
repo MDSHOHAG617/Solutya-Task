@@ -8,6 +8,7 @@ import app from "./firebase.init";
 import { getAuth } from "firebase/auth";
 import Login from "./Components/Login";
 import RequireAuth from "./Components/RequireAuth";
+import AddProducts from "./Components/AddProducts";
 
 const auth = getAuth(app);
 
@@ -18,13 +19,21 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
 
-        <Route path="/products" element={<Products></Products>}></Route>
+        {/* <Route path="/products" element={<Products></Products>}></Route> */}
         <Route
           path="/dashboard"
           element={
             <RequireAuth>
               <Dashboard></Dashboard>
             </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="product/add"
+          element={
+            // <RequireAuth>
+            <AddProducts></AddProducts>
+            /* </RequireAuth> */
           }
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>

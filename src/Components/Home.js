@@ -1,8 +1,12 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Products from "./Products";
 
 const Home = () => {
-  return <div>welcome to home</div>;
+  return (
+    <div>
+      <Products></Products>
+    </div>
+  );
 };
 
 export default Home;

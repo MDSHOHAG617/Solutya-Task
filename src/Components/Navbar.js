@@ -42,9 +42,14 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link className="font-bold" to="/products">
                   Products
+                </Link>
+              </li> */}
+              <li>
+                <Link className="font-bold" to="product/add">
+                  Add Products
                 </Link>
               </li>
               {user && (
@@ -63,7 +68,10 @@ const Navbar = () => {
                 </button>
               ) : (
                 <li>
-                  <Link className="font-bold" to="/login">
+                  <Link
+                    className="font-btn btn-sm bg-secondary border-none font-bold text-white"
+                    to="/login"
+                  >
                     Login
                   </Link>
                 </li>
@@ -81,9 +89,14 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link className="font-bold" to="/products">
                 Products
+              </Link>
+            </li> */}
+            <li>
+              <Link className="font-bold" to="product/add">
+                Add Products
               </Link>
             </li>
             {user && (

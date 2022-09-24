@@ -3,12 +3,13 @@ import "./App.css";
 import Dashboard from "./Components/Dashboard";
 import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
-import Products from "./Components/Products";
 import app from "./firebase.init";
 import { getAuth } from "firebase/auth";
 import Login from "./Components/Login";
 import RequireAuth from "./Components/RequireAuth";
 import AddProducts from "./Components/AddProducts";
+import Users from "./Components/Users";
+import ManageProducts from "./Components/ManageProducts";
 
 const auth = getAuth(app);
 
@@ -27,7 +28,13 @@ function App() {
               <Dashboard></Dashboard>
             </RequireAuth>
           }
-        ></Route>
+        >
+          <Route index element={<Users></Users>}></Route>
+          <Route
+            path="/dashboard/manageProducts"
+            element={<ManageProducts></ManageProducts>}
+          ></Route>
+        </Route>
         <Route
           path="product/add"
           element={

@@ -3,16 +3,19 @@ import app from "../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { getAuth } from "firebase/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Loading from "./Loader/Loading";
+import useToken from "./Hooks/useToken";
 
 const Registration = () => {
   const auth = getAuth(app);
-  const [name, setName] = useState("");
+  //   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  //   const [error, setError] = useState("");
   const [createUserWithEmailAndPassword, user, loading, hookError] =
     useCreateUserWithEmailAndPassword(auth);
 
+  const token = useToken(user);
   //Replace by using navigate & location
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,6 +23,12 @@ const Registration = () => {
   if (user) {
     navigate(from, { replace: true });
   }
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
+  //send user to useToken
+
   //   const handleEmail = (event) => {
   //     const emailRegex = /\S+@\S+\.\S+/;
   //     const validEmail = emailRegex.test(event.target.value);

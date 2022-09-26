@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
@@ -61,7 +62,12 @@ const ManageProducts = () => {
                 <td>{product.description}</td>
                 <td> $ {product.price}</td>
                 <td>
-                  <button className="btn btn-success text-white">Update</button>
+                  <Link
+                    to={`/update/${product._id}`}
+                    className="btn btn-success text-white"
+                  >
+                    Update
+                  </Link>
                 </td>
                 <td>
                   <button

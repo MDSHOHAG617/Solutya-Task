@@ -10,6 +10,7 @@ import RequireAuth from "./Components/RequireAuth";
 import AddProducts from "./Components/AddProducts";
 import Users from "./Components/Users";
 import ManageProducts from "./Components/ManageProducts";
+import UpdateProduct from "./Components/UpdateProduct";
 
 const auth = getAuth(app);
 
@@ -38,12 +39,16 @@ function App() {
         <Route
           path="product/add"
           element={
-            // <RequireAuth>
-            <AddProducts></AddProducts>
-            /* </RequireAuth> */
+            <RequireAuth>
+              <AddProducts></AddProducts>
+            </RequireAuth>
           }
         ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route
+          path="/update/:id"
+          element={<UpdateProduct></UpdateProduct>}
+        ></Route>
       </Routes>
     </div>
   );

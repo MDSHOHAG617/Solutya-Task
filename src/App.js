@@ -3,8 +3,6 @@ import "./App.css";
 import Dashboard from "./Components/Dashboard";
 import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
-import app from "./firebase.init";
-import { getAuth } from "firebase/auth";
 import Login from "./Components/Login";
 import RequireAuth from "./Components/RequireAuth";
 import AddProducts from "./Components/AddProducts";
@@ -12,6 +10,7 @@ import Users from "./Components/Users";
 import ManageProducts from "./Components/ManageProducts";
 import UpdateProduct from "./Components/UpdateProduct";
 import Registration from "./Components/Registration";
+
 // import SignUp from "./Components/SignUp";
 
 function App() {
@@ -53,6 +52,7 @@ function App() {
           path="/registration"
           element={<Registration></Registration>}
         ></Route>
+        {/* <Route path="/mngadm" element={<ManageAdmin></ManageAdmin>}></Route> */}
       </Routes>
     </div>
   );

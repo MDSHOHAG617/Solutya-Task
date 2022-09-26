@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import app from "../firebase.init";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
+import Loading from "./Loader/Loading";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ const Login = () => {
     );
   }
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading></Loading>;
   }
   // if (user) {
   // }

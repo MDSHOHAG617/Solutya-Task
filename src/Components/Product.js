@@ -1,7 +1,7 @@
 import React from "react";
 
 const Product = ({ product }) => {
-  console.log(product);
+  // console.log(product);
   const { name, image, description, price } = product;
   return (
     <div>

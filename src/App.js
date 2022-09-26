@@ -11,8 +11,8 @@ import AddProducts from "./Components/AddProducts";
 import Users from "./Components/Users";
 import ManageProducts from "./Components/ManageProducts";
 import UpdateProduct from "./Components/UpdateProduct";
-
-const auth = getAuth(app);
+import Registration from "./Components/Registration";
+// import SignUp from "./Components/SignUp";
 
 function App() {
   return (
@@ -48,6 +48,10 @@ function App() {
         <Route
           path="/update/:id"
           element={<UpdateProduct></UpdateProduct>}
+        ></Route>
+        <Route
+          path="/registration"
+          element={<Registration></Registration>}
         ></Route>
       </Routes>
     </div>

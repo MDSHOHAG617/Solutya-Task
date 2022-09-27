@@ -15,7 +15,7 @@ const AddProducts = () => {
       image,
     };
     // sending data to the server
-    fetch("http://localhost:5000/product", {
+    fetch("https://solutya-task-server-17uf.vercel.app/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",

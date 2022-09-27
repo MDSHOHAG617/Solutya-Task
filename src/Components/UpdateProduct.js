@@ -5,7 +5,7 @@ const UpdateProduct = () => {
   const { id } = useParams();
   const [products, setProducts] = useState({});
   useEffect(() => {
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://solutya-task-server-17uf.vercel.app/product/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -26,7 +26,7 @@ const UpdateProduct = () => {
       image,
     };
     // sending data to the server
-    const url = `http://localhost:5000/product/${id}`;
+    const url = `https://solutya-task-server-17uf.vercel.app/product/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

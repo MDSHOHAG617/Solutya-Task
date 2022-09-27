@@ -10,7 +10,7 @@ const ManageProducts = () => {
   // console.log(currentUser);
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/product")
+    fetch("https://solutya-task-server-17uf.vercel.app/product")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -20,7 +20,7 @@ const ManageProducts = () => {
     const proceed = window.confirm("Are you sure you want to delete?");
     if (proceed) {
       console.log("delete user with id", id);
-      const url = `http://localhost:5000/product/${id}`;
+      const url = `https://solutya-task-server-17uf.vercel.app/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -39,7 +39,7 @@ const ManageProducts = () => {
   //handle admin access
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/user")
+    fetch("https://solutya-task-server-17uf.vercel.app/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

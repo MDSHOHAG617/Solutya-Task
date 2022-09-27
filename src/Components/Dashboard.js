@@ -13,7 +13,7 @@ const Dashboard = () => {
           class="btn btn-secondary text-white drawer-button lg:hidden"
         >
           {" "}
-          > Open drawer
+           Open drawer
         </label>
       </div>
       <div class="drawer-side">

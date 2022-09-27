@@ -4,26 +4,33 @@ const UserRow = ({ user }) => {
   const { email, _id, role } = user;
   //make admin
   const makeAdmin = () => {
-    alert("Are you sure want to make admin?");
-    fetch(`http://localhost:5000/user/admin/${email}`, {
+    // alert("Are you sure want to make admin?");
+
+    const proceed = window.confirm("Are you sure you want to delete?");
+    if(proceed){fetch(`http://localhost:5000/user/admin/${email}`, {
       method: "PUT",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
       });
-  };
+  };}
+    
   //make editor
   const makeEditor = () => {
-    alert("Are you sure want to make editor?");
-    fetch(`http://localhost:5000/user/editor/${email}`, {
-      method: "PUT",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  };
+    // alert("Are you sure want to make editor?");
+    const proceed = window.confirm("Are you sure you want to delete?");
+    if(proceed){
+      fetch(`http://localhost:5000/user/editor/${email}`, {
+        method: "PUT",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    };
+    }
+    
 
   return (
     <tr>

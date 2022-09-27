@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { getAuth } from "firebase/auth";
+import app from "../firebase.init";
 
 const ManageProducts = () => {
+  const auth = getAuth(app);
+  const [currentUser] = useAuthState(auth);
+  // console.log(currentUser);
   const [products, setProducts] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/product")
@@ -20,6 +26,7 @@ const ManageProducts = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          console.log("Deleted");
           if (data.deletedCount > 0) {
             console.log("Deleted");
             const remaining = products.filter((product) => product._id !== id);
@@ -31,12 +38,12 @@ const ManageProducts = () => {
 
   //handle admin access
   const [users, setUsers] = useState([]);
-  console.log(users);
   useEffect(() => {
     fetch("http://localhost:5000/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
+  
 
   return (
     <div>
@@ -83,14 +90,8 @@ const ManageProducts = () => {
                 <td>
                   {users.map((user) => (
                     <div>
-                      {user?.role === "admin" && (
-                        <button
-                          onClick={() => handleDelete(product._id)}
-                          className="btn bg-red-400 text-white border-none"
-                        >
-                          delete
-                        </button>
-                      )}
+                      {((user?.email === currentUser?.email) &&
+                        (user?.role === "admin"))&& <button onClick={()=>handleDelete(product._id)} className="btn bg-red-400 text-white border-none hover:bg-red-400">delete</button>}
                     </div>
                   ))}
                 </td>

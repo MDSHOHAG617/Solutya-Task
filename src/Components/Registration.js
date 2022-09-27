@@ -27,35 +27,6 @@ const Registration = () => {
     return <Loading></Loading>;
   }
 
-  //send user to useToken
-
-  //   const handleEmail = (event) => {
-  //     const emailRegex = /\S+@\S+\.\S+/;
-  //     const validEmail = emailRegex.test(event.target.value);
-  //     if (validEmail) {
-  //       setEmail(event.target.value);
-  //       setError("");
-  //     } else {
-  //       setError("invalid Email !");
-  //     }
-  //   };
-
-  //   const handlePassword = (event) => {
-  //     const passwordRegex = /(?=.*?[#?!@$%^&*-])/;
-  //     const validPassword = passwordRegex.test(event.target.value);
-  //     if (validPassword) {
-  //       setPassword(event.target.value);
-  //       setError("");
-  //     } else {
-  //       setError("At least one special character");
-  //     }
-  //   };
-  //   const handleLogIn = (event) => {
-  //     event.preventDefault();
-  //     createUserWithEmailAndPassword(email, password);
-  //     setName(event.target.value);
-  //   };
-
   return (
     <div className="">
       <form className="bg-sky-200 p-5">
@@ -106,19 +77,12 @@ const Registration = () => {
           Register
         </button>
 
-        {/* {error && (
-          <div>
-            <img className="w-8 mx-auto m-1" src={invalidIcon} alt="" />
-            <p className="text-red-500  font-bold">{error}</p>
-          </div>
-        )} */}
         {hookError && (
           <div>
             <p className="text-red-500  font-bold">{hookError?.message}</p>
           </div>
         )}
       </form>
-      {/* <SocialLogin></SocialLogin> */}
     </div>
   );
 };

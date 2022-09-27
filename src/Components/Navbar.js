@@ -47,11 +47,13 @@ const Navbar = () => {
                   Products
                 </Link>
               </li> */}
-              <li>
-                <Link className="font-bold" to="product/add">
-                  Add Products
-                </Link>
-              </li>
+              {user && (
+                <li>
+                  <Link className="font-bold" to="product/add">
+                    Add Products
+                  </Link>
+                </li>
+              )}
               {user && (
                 <li>
                   <Link className="font-bold" to="/dashboard">
@@ -94,11 +96,13 @@ const Navbar = () => {
                 Products
               </Link>
             </li> */}
-            <li>
-              <Link className="font-bold" to="product/add">
-                Add Products
-              </Link>
-            </li>
+            {user && (
+              <li>
+                <Link className="font-bold" to="product/add">
+                  Add Products
+                </Link>
+              </li>
+            )}
             {user && (
               <li>
                 <Link className="font-bold" to="/dashboard">

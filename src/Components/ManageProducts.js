@@ -28,6 +28,16 @@ const ManageProducts = () => {
         });
     }
   };
+
+  //handle admin access
+  const [users, setUsers] = useState([]);
+  console.log(users);
+  useEffect(() => {
+    fetch("http://localhost:5000/user")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
   return (
     <div>
       <p>manage all products :{products.length}</p>
@@ -61,6 +71,7 @@ const ManageProducts = () => {
                 <td>{product.name}</td>
                 <td>{product.description}</td>
                 <td> $ {product.price}</td>
+
                 <td>
                   <Link
                     to={`/update/${product._id}`}
@@ -70,12 +81,18 @@ const ManageProducts = () => {
                   </Link>
                 </td>
                 <td>
-                  <button
-                    onClick={() => handleDelete(product._id)}
-                    className="btn bg-red-400 text-white border-none"
-                  >
-                    delete
-                  </button>
+                  {users.map((user) => (
+                    <div>
+                      {user?.role === "admin" && (
+                        <button
+                          onClick={() => handleDelete(product._id)}
+                          className="btn bg-red-400 text-white border-none"
+                        >
+                          delete
+                        </button>
+                      )}
+                    </div>
+                  ))}
                 </td>
               </tr>
             ))}

@@ -19,6 +19,7 @@ const Users = () => {
               <th>Email</th>
               <th>user ID</th>
               <th>make Admin</th>
+              <th>make Editor</th>
             </tr>
           </thead>
           <tbody>

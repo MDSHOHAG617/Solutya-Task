@@ -171,12 +171,7 @@ const Login = () => {
             Please Register
           </Link>{" "}
         </p>
-        {/* <button
-          onClick={handlePasswordReset}
-          className="text-red-500 font-mono p-2"
-        >
-          Forget Password?
-        </button> */}
+        
         <br />
         <button
           onClick={() => signInWithEmailAndPassword(email, password)}
@@ -184,22 +179,12 @@ const Login = () => {
         >
           Login
         </button>
-
-        {/* {error && (
-          <div>
-            <img className="w-8 mx-auto m-1" src={invalidIcon} alt="" />
-            <p className="text-red-500  font-bold">{error}</p>
-          </div>
-        )} */}
-
         {hookError && (
           <div>
             <p className="text-red-500  font-bold">{hookError?.message}</p>
           </div>
         )}
       </form>
-      {/* <SocialLogin></SocialLogin> */}
-      {/* <ToastContainer></ToastContainer> */}
     </div>
   );
 };

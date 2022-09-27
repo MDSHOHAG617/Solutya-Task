@@ -42,11 +42,7 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
-              {/* <li>
-                <Link className="font-bold" to="/products">
-                  Products
-                </Link>
-              </li> */}
+        
               {user && (
                 <li>
                   <Link className="font-bold" to="product/add">
@@ -91,11 +87,7 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            {/* <li>
-              <Link className="font-bold" to="/products">
-                Products
-              </Link>
-            </li> */}
+           
             {user && (
               <li>
                 <Link className="font-bold" to="product/add">

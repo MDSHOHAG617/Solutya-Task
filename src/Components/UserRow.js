@@ -37,8 +37,6 @@ const auth =getAuth(app)
         });
     };
     }
-    
-
   return (
     <tr>
       <td>{email}</td>
@@ -54,13 +52,7 @@ const auth =getAuth(app)
           make Admin
         </button>
       )}</div>
-      
-      
-      
     </td>
-  
-
-      
       <td>
         {role === "editor" ? (
           <button className="text-pink-400">All ready an Editor </button>
